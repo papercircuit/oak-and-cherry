@@ -17,6 +17,7 @@ const LeavesSketch = () => {
       };
 
       p.draw = () => {
+        
         p.background(100, 10, 90, 1);
         p.fill(40, 100, 60, 1);
         p.rect(0, p.height * 0.8, p.width, p.height * 0.2);
