@@ -62,7 +62,7 @@ const LeavesSketch = () => {
             }
             p.draw = () => {
                 // p.backround will clear the canvas with a color (white would be HSB(0, 0, 100, 1)
-                p.background(0, 0, 100, 1);
+                p.background(0, 0, 100, .5);
                 // we use a for loop to iterate through the leaves array and call the update and display methods
                 for (let i = 0; i < leaves.length; i++) {
                     leaves[i].update();
