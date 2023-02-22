@@ -13,6 +13,7 @@ const LeavesSketch = () => {
                 const canvas = p.createCanvas(p.windowWidth, p.windowHeight);
                 // we attach our sketch to an existing DOM element with the id "leaves-sketch"
                 canvas.parent('leaves-sketch');
+                canvas.style('opacity', '0.5');
                 // we set the color mode to HSB with a range of 360, 100, 100, 1
                 p.colorMode(p.HSB, 360, 100, 100, 1);
                 // we use p.noStroke() to disable the drawing of borders around shapes
@@ -26,7 +27,7 @@ const LeavesSketch = () => {
                     this.x = p.random(p.width);
                     this.y = p.random(-p.height, -100);
                     this.size = p.random(10, 60);
-                    this.speed = p.random(0.1, 3);
+                    this.speed = p.random(0.1, 2);
                     // angle is the angular position of the leaf. we use it to make the leaves move in a random direction
                     this.angle = p.random(p.TWO_PI);
                     //omega is the angular velocity. we use it to make the leaves rotate by a random amount
@@ -61,8 +62,8 @@ const LeavesSketch = () => {
                 }
             }
             p.draw = () => {
-                // p.backround will clear the canvas with a color (white would be HSB(0, 0, 100, 1)
-                p.background(0, 0, 100, .5);
+
+                p.background(0, 0, 100, .6);
                 // we use a for loop to iterate through the leaves array and call the update and display methods
                 for (let i = 0; i < leaves.length; i++) {
                     leaves[i].update();
@@ -72,7 +73,13 @@ const LeavesSketch = () => {
         };
 
         setCanvas(new p5(sketch));
+
+        return () => {
+            canvas.remove();
+        }
     }, []);
+
+
 
 
 
