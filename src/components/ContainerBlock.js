@@ -8,7 +8,7 @@ import Hero from './Hero';
 const ContainerBlock = () => {
     return (
         // set width and height to be 50% of the screen
-        <div className="bg-transparent border-2 border-black align-center justify-center flex flex-col w-1/2 h-1/2">
+        <div className=" border-2 align-center justify-center flex flex-col w-1/2 h-1/2 bg-gray-100 shadow-md rounded-lg p-6 w-1/2 h-1/2 mx-auto mt-12 ">
             <Navbar />
             <Hero />
             <Footer />

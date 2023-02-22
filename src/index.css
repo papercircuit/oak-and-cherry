@@ -54,11 +54,12 @@ code {
   width: 100vh;
   height: 100vh;
   color: #fff;
-  background: linear-gradient(-45deg, #c2d7e3, #e3d7d3, #b7d8e2, #fde0d9);
+  background: linear-gradient(-45deg, #3d4346, #fbded5, #5b676b, #f8f8f8);
   background-size: 400% 400%;
-  -webkit-animation: Gradient 15s ease infinite;
-  -moz-animation: Gradient 15s ease infinite;
-  animation: Gradient 15s ease infinite;
+  -webkit-animation: Gradient 25s ease infinite;
+  -moz-animation: Gradient 25s ease infinite;
+  animation: Gradient 25s ease infinite;
+  
   }
 
 .paused {

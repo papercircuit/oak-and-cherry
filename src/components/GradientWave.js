@@ -13,7 +13,8 @@ function GradientWave() {
   
   return (
     <div className={animationClass} id="gradient-wave">
-      <button onClick={changeState}>Stop / Start</button>
+      {/* <h1>Pure CSS3 Animated Gradient Background</h1>
+      <button onClick={changeState}>Stop / Start</button> */}
     </div>
   );
 }

@@ -18,10 +18,15 @@ const LeavesSketch = () => {
                 p.colorMode(p.HSB, 360, 100, 100, 1);
                 // we use p.noStroke() to disable the drawing of borders around shapes
                 p.noStroke();
+
                 for (let i = 0; i < 80; i++) {
                     leaves.push(new Leaf());
                 }
+
             };
+
+
+
             class Leaf {
                 constructor() {
                     this.x = p.random(p.width);
@@ -46,7 +51,13 @@ const LeavesSketch = () => {
                     }
                     // we add the speed to the y position to make the leaves move down
                     this.y += this.speed;
+                    // update leaves positions if the window is resized
+                    if (p.windowWidth !== p.width || p.windowHeight !== p.height) {
+                        this.x = p.random(p.width);
+                        this.y = p.random(-p.height, -100);
+                    }
                 }
+
                 display() {
                     p.push();
                     p.translate(this.x, this.y);
@@ -59,8 +70,21 @@ const LeavesSketch = () => {
                     p.bezierVertex(-30, -30, -30, -60, 0, -60);
                     p.endShape(p.CLOSE);
                     p.pop();
+
                 }
+
             }
+
+            // detect when the window is resized and redraw the canvas
+            p.windowResized = () => {
+                p.resizeCanvas(p.windowWidth, p.windowHeight, true);
+                // update leaves positions if the window is resized
+                for (let i = 0; i < leaves.length; i++) {
+                    leaves[i].x = p.random(p.width);
+                    leaves[i].y = p.random(-p.height, -100);
+                }
+            };
+
             p.draw = () => {
 
                 p.background(0, 0, 100, .6);
@@ -69,7 +93,9 @@ const LeavesSketch = () => {
                     leaves[i].update();
                     leaves[i].display();
                 }
+             
             };
+
         };
 
         setCanvas(new p5(sketch));
@@ -78,10 +104,6 @@ const LeavesSketch = () => {
             canvas.remove();
         }
     }, []);
-
-
-
-
 
     return <div id="leaves-sketch"></div>;
 };
