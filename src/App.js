@@ -6,7 +6,7 @@ import ContainerBlock from './components/ContainerBlock';
 
 function App() {
   return (
-    <div className="App">
+    <div className="flex justify-center items-center h-screen App">
       <ContainerBlock />
       <LeavesSketch
         className="leaves-sketch"
