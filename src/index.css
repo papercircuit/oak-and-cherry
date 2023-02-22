@@ -17,18 +17,18 @@ code {
     monospace;
 }
 
-#leaves-sketch {
+#leaves-sketch, #wave, #gradient-wave {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: -1;
   height: 100vh;
   background: transparent;
+  background-size: contain;
 }
 
-#wave {
+#trees-bg {
   position: absolute;
   top: 0;
   left: 0;
@@ -36,19 +36,17 @@ code {
   height: 100%;
   z-index: -1;
   height: 100vh;
+  background-size: contain;
 }
 
-/* GRADIENT WAVE */
-
-#gradient-wave{
-  position: absolute;
-  top: 0;
-  left: 0;
+#trees-bg img {
   width: 100%;
   height: 100%;
-  z-index: -2;
-  height: 100vh;
+  object-fit: cover;
 }
+
+
+/* GRADIENT WAVE */
 
 .test {
   width: 100vh;

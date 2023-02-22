@@ -4,6 +4,7 @@ import LeavesSketch from './components/LeavesSketch';
 import ContainerBlock from './components/ContainerBlock';
 import SineWave from './components/SineWave';
 import GradientWave from './components/GradientWave';
+import TreesBG from './components/TreesBG';
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
       />
      {/* <SineWave /> */}
      <GradientWave />
+      <TreesBG />
     </div>
   );
 }
