@@ -19,13 +19,11 @@ const LeavesSketch = () => {
                 // we use p.noStroke() to disable the drawing of borders around shapes
                 p.noStroke();
 
-                for (let i = 0; i < 80; i++) {
+                for (let i = 0; i < 149; i++) {
                     leaves.push(new Leaf());
                 }
 
             };
-
-
 
             class Leaf {
                 constructor() {

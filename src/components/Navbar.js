@@ -13,7 +13,7 @@ const Navbar = () => {
         <ul className="flex items-center flex-shrink-0 text-white mr-6">
           <li className="mr-6">
             <a className="text-white no-underline hover:text-white hover:no-underline" href="#">
-              <span className="text-2xl pl-2"><i className="em em-grinning"></i> Oak & Cherry</span>
+              <span className="text-2xl pl-2 text-black">Oak & Cherry</span>
             </a>
           </li>
         </ul>
