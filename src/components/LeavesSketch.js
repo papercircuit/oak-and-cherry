@@ -27,7 +27,7 @@ const LeavesSketch = () => {
                     this.x = p.random(p.width);
                     this.y = p.random(-p.height, -100);
                     this.size = p.random(10, 60);
-                    this.speed = p.random(0.1, 2);
+                    this.speed = p.random(0.1, 1);
                     // angle is the angular position of the leaf. we use it to make the leaves move in a random direction
                     this.angle = p.random(p.TWO_PI);
                     //omega is the angular velocity. we use it to make the leaves rotate by a random amount
