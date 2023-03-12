@@ -43,43 +43,55 @@ const LeavesSketch = () => {
                     // here we add omega to the angle to make the leaves rotate
                     this.angle += this.omega;
                     // if the leaf is out of the canvas we move it back to the top
-                    if (this.y > p.height + this.size) {
-                        this.y = p.random(-p.height, -100);
-                        this.x = p.random(p.width);
+                    // if (this.y > p.height + this.size) {
+                    //     this.y = p.random(-p.height, -100);
+                    //     this.x = p.random(p.width);
+                    // }
+                    // if the leaf hits the bottom of the screen we keep it there so the leaves pile up
+                    if (this.y > p.height - this.size) {
+                        this.y = p.height - this.size;
+                        this.omega = 0;
+                        this.speed = 0;
                     }
                     // we add the speed to the y position to make the leaves move down
                     this.y += this.speed;
-                    // update leaves positions if the window is resized
-                    if (p.windowWidth !== p.width || p.windowHeight !== p.height) {
-                        this.x = p.random(p.width);
-                        this.y = p.random(-p.height, -100);
-                    }
+                
                 }
 
                 display() {
+                    // first we push the current state of the canvas
                     p.push();
+                    // then we translate the canvas to the position of the leaf
                     p.translate(this.x, this.y);
+                    // we rotate the canvas by the angle of the leaf
                     p.rotate(this.angle + p.PI / 2);
+                    // we scale the canvas by the size of the leaf
                     p.scale(this.size / 100);
+                    // we set the fill color of the leaf
                     p.fill(this.fill);
+                    // we use p.beginShape() to start drawing a custom shape
                     p.beginShape();
+                    // we use p.vertex() to define the vertices of the shape
                     p.vertex(0, -60);
-                    p.bezierVertex(30, -60, 30, -30, 0, 0);
+                    // we use p.bezierVertex() to create a leaf shape
+                    p.bezierVertex(10, -60, 30, -30, 0, 0);
                     p.bezierVertex(-30, -30, -30, -60, 0, -60);
+                    // we use p.endShape() to close the shape
                     p.endShape(p.CLOSE);
+                    // we pop the current state of the canvas
                     p.pop();
-
                 }
 
             }
 
             // detect when the window is resized and redraw the canvas
             p.windowResized = () => {
-                p.resizeCanvas(p.windowWidth, p.windowHeight, true);
+                p.resizeCanvas(p.windowWidth, p.windowHeight, false);
                 // update leaves positions if the window is resized
                 for (let i = 0; i < leaves.length; i++) {
                     leaves[i].x = p.random(p.width);
                     leaves[i].y = p.random(-p.height, -100);
+                    
                 }
             };
 
@@ -97,10 +109,7 @@ const LeavesSketch = () => {
         };
 
         setCanvas(new p5(sketch));
-
-        return () => {
-            canvas.remove();
-        }
+       
     }, []);
 
     return <div id="leaves-sketch"></div>;

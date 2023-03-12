@@ -8,6 +8,7 @@ const MusicPlayer = ({ playlist }) => {
     <div className="bg-gray-100 p-4 rounded-lg shadow-lg">
       {playlist.map((audioSrc, index) => (
         <AudioPlayer
+        className='h-15 border-2 border-gray-300 rounded-lg shadow-md'
           key={index}
           src={audioSrc}
           controls
@@ -15,7 +16,6 @@ const MusicPlayer = ({ playlist }) => {
           showJumpControls={false}
           customControlsSection={['MAIN_CONTROLS', 'VOLUME_CONTROLS']}
           customProgressBarSection={['PROGRESS_BAR']}
-          // we set the styling here to match the rest of the app
         />
       ))}
     </div>
